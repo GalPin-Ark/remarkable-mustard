@@ -42,8 +42,8 @@ export default class Blog extends React.Component {
                       <p className="read-more"><Link to={safePrefix(_.get(post, 'url'))} className="read-more-link">Read More <span className="icon-arrow-right" aria-hidden="true" /></Link></p>
                       </React.Fragment>} */}
 
-                      {_.get(post, 'frontmatter.excerpt') && <div className="post-content">
-                              {htmlToReact(_.get(post, 'frontmatter.excerpt'))}
+                      {_.get(post, 'frontmatter.content') && <div className="post-content">
+                              {htmlToReact(_.get(post, 'frontmatter.content'))}
                       </div>}
                     </article>
                     ))}
