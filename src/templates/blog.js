@@ -3,7 +3,7 @@ import _ from 'lodash';
 import moment from 'moment-strftime';
 
 import {Layout} from '../components/index';
-import {toStyleObj, safePrefix, getPages, Link} from '../utils';
+import {toStyleObj, safePrefix, getPages, Link, htmlToReact} from '../utils';
 
 export default class Blog extends React.Component {
     render() {
@@ -32,14 +32,15 @@ export default class Blog extends React.Component {
                       </Link>
                       }
                       <header className="post-header">
-                        <div className="post-meta">
+                        {/* <div className="post-meta">
                           <time className="published" dateTime={moment(_.get(post, 'frontmatter.date')).strftime('%Y-%m-%d %H:%M')}>{moment(_.get(post, 'frontmatter.date')).strftime('%B %d, %Y')}</time>
-                        </div>
+                        </div> */}
                         <h2 className="post-title line-left"><Link to={safePrefix(_.get(post, 'url'))} rel="bookmark">{_.get(post, 'frontmatter.title')}</Link></h2>
                       </header>
                       {_.get(post, 'frontmatter.excerpt') && <React.Fragment>
-                      <p className="post-excerpt">{_.get(post, 'frontmatter.excerpt')}</p>
-                      <p className="read-more"><Link to={safePrefix(_.get(post, 'url'))} className="read-more-link">Read More <span className="icon-arrow-right" aria-hidden="true" /></Link></p>
+                      {/* <p className="post-excerpt">{_.get(post, 'frontmatter.excerpt')}</p> */}
+                      <p className="post-excerpt"> {htmlToReact(_.get(post, 'frontmatter.excerpt'))}</p>
+                      {/* <p className="read-more"><Link to={safePrefix(_.get(post, 'url'))} className="read-more-link">Read More <span className="icon-arrow-right" aria-hidden="true" /></Link></p> */}
                       </React.Fragment>}
                     </article>
                     ))}

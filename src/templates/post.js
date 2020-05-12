@@ -15,9 +15,9 @@ export default class Post extends React.Component {
                   <div className="bg-img" style={toStyleObj('background-image: url(\'' + safePrefix(_.get(this.props, 'pageContext.frontmatter.content_img_path')) + '\')')}/>
                   }
                   <div className="inner-small">
-                    <div className="post-meta">
+                    {/* <div className="post-meta">
                       <time className="published" dateTime={moment(_.get(this.props, 'pageContext.frontmatter.date')).strftime('%Y-%m-%d %H:%M')}>{moment(_.get(this.props, 'pageContext.frontmatter.date')).strftime('%B %d, %Y')}</time>
-                    </div>
+                    </div> */}
                     <h1 className="post-title">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
                     {_.get(this.props, 'pageContext.frontmatter.subtitle') && 
                     <div className="post-subtitle">
